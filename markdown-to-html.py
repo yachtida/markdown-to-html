@@ -23,10 +23,6 @@ def main():
         print("Markdownの変換に失敗しました。")
         sys.exit(1)
 
-if __name__ == "__main__":
-    main()
-
-
 
 def read_markdown_file(file_path):
     try:
@@ -42,7 +38,7 @@ def read_markdown_file(file_path):
 
 def convert_md_to_html(md_content):
     try:
-        html_content = markdown.markdown(md_content)
+        html_content = markdown.markdown(md_content, extensions=['tables'])
         return html_content
     except Exception as e:
         print(f"エラー: Markdownの変換中に問題が発生しました。{str(e)}")
